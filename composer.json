@@ -1,0 +1,26 @@
+{
+    "name": "superman2014/filesystem-aliyun",
+    "description": "aliyun oss filesystem storage for laravel 5+",
+    "keywords": ["aliyun", "oss", "laravel", "filesystems", "storage"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "liujingyu",
+            "email": "jingyu525@gmail.com"
+        }
+    ],
+    "require": {
+        "aliyuncs/oss-sdk-php": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Superman2014\\Filesystem\\Aliyun\\": "src/"
+        }
+    },
+     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
