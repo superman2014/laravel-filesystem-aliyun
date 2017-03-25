@@ -4,7 +4,7 @@ namespace Superman2014\Filesystem\Aliyun;
 
 use Superman2014\Filesystem\Aliyun\Plugins\PutFile;
 use Superman2014\Filesystem\Aliyun\Plugins\PutRemoteFile;
-use Illuminate\Storage\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
 use OSS\OssClient;
