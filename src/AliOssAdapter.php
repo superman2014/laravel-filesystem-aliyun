@@ -170,7 +170,7 @@ class AliOssAdapter extends AbstractAdapter
         } catch (OssException $e) {
             $this->logErr(__FUNCTION__, $e);
 
-            throw $e
+            throw $e;
         }
 
         return $this->normalizeResponse($options, $path);
