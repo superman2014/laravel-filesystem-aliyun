@@ -4,11 +4,11 @@ namespace Superman2014\Filesystem\Aliyun;
 
 use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\AdapterInterface;
+use Illuminate\Support\Facades\Log;
 use League\Flysystem\Config;
 use League\Flysystem\Util;
 use OSS\Core\OssException;
 use OSS\OssClient;
-use Illuminate\Support\Facades\Log;
 use RuntimeException;
 
 class AliOssAdapter extends AbstractAdapter
@@ -662,6 +662,8 @@ class AliOssAdapter extends AbstractAdapter
      *
      * @param string $path
      * @return string
+     *
+     * @throws RuntimeException
      */
     public function getUrl($path)
     {
