@@ -9,6 +9,7 @@ use League\Flysystem\Util;
 use OSS\Core\OssException;
 use OSS\OssClient;
 use Illuminate\Support\Facades\Log;
+use RuntimeException;
 
 class AliOssAdapter extends AbstractAdapter
 {
@@ -654,5 +655,31 @@ class AliOssAdapter extends AbstractAdapter
             Log::error($fun.': FAILED');
             Log::error($e->getMessage());
         }
+    }
+
+    /**
+     * Get the signed download url of a file.
+     *
+     * @param string $path
+     * @return string
+     */
+    public function getUrl($path)
+    {
+        $object = $this->applyPathPrefix($path);
+        $url = $this->client->signUrl($this->bucket, $object, 3600);
+        $components = parse_url($url);
+
+        if ($components['scheme'] && $components['host'] && $components['path']) {
+            return implode('',
+                [
+                    $components['scheme'],
+                    '://',
+                    $components['host'],
+                    $components['path']
+                ]
+            );
+        }
+
+        throw new RuntimeException("The $path is invalid.");
     }
 }
