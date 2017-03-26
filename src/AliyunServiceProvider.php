@@ -17,10 +17,10 @@ class AliyunServiceProvider extends ServiceProvider
             function ($app, $config) {
                 $adapter = new AliOssAdapter(
                     $client = new OssClient(
-                        $config['access_id'],
                         $config['access_key'],
+                        $config['access_secert'],
                         $config['endpoint'],
-                        $config['isCName']
+                        $config['is_cname']
                     ),
                     $config['bucket'],
                     $config['debug']
