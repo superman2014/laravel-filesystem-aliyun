@@ -18,7 +18,7 @@ class AliyunServiceProvider extends ServiceProvider
                 $adapter = new AliOssAdapter(
                     $client = new OssClient(
                         $config['access_key'],
-                        $config['access_secert'],
+                        $config['access_secret'],
                         $config['endpoint'],
                         $config['is_cname']
                     ),
